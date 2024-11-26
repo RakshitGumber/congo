@@ -1,9 +1,10 @@
 import { Router } from "express";
+import { api } from "./api";
+import { home } from "./home";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+router.use("/", home);
+router.use("/api", api);
 
 export default router;
