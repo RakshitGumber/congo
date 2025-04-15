@@ -11,20 +11,34 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AuthImport } from './routes/auth'
 import { Route as IndexImport } from './routes/index'
+import { Route as pagesShopImport } from './routes/(pages)/shop'
+import { Route as pagesPlacesImport } from './routes/(pages)/places'
+import { Route as pagesExploreImport } from './routes/(pages)/explore'
 
 // Create/Update Routes
-
-const AuthRoute = AuthImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const pagesShopRoute = pagesShopImport.update({
+  id: '/(pages)/shop',
+  path: '/shop',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const pagesPlacesRoute = pagesPlacesImport.update({
+  id: '/(pages)/places',
+  path: '/places',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const pagesExploreRoute = pagesExploreImport.update({
+  id: '/(pages)/explore',
+  path: '/explore',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +53,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthImport
+    '/(pages)/explore': {
+      id: '/(pages)/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof pagesExploreImport
+      parentRoute: typeof rootRoute
+    }
+    '/(pages)/places': {
+      id: '/(pages)/places'
+      path: '/places'
+      fullPath: '/places'
+      preLoaderRoute: typeof pagesPlacesImport
+      parentRoute: typeof rootRoute
+    }
+    '/(pages)/shop': {
+      id: '/(pages)/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof pagesShopImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +81,52 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/explore': typeof pagesExploreRoute
+  '/places': typeof pagesPlacesRoute
+  '/shop': typeof pagesShopRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/explore': typeof pagesExploreRoute
+  '/places': typeof pagesPlacesRoute
+  '/shop': typeof pagesShopRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/auth': typeof AuthRoute
+  '/(pages)/explore': typeof pagesExploreRoute
+  '/(pages)/places': typeof pagesPlacesRoute
+  '/(pages)/shop': typeof pagesShopRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth'
+  fullPaths: '/' | '/explore' | '/places' | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth'
-  id: '__root__' | '/' | '/auth'
+  to: '/' | '/explore' | '/places' | '/shop'
+  id:
+    | '__root__'
+    | '/'
+    | '/(pages)/explore'
+    | '/(pages)/places'
+    | '/(pages)/shop'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AuthRoute: typeof AuthRoute
+  pagesExploreRoute: typeof pagesExploreRoute
+  pagesPlacesRoute: typeof pagesPlacesRoute
+  pagesShopRoute: typeof pagesShopRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AuthRoute: AuthRoute,
+  pagesExploreRoute: pagesExploreRoute,
+  pagesPlacesRoute: pagesPlacesRoute,
+  pagesShopRoute: pagesShopRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +140,22 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/auth"
+        "/(pages)/explore",
+        "/(pages)/places",
+        "/(pages)/shop"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/auth": {
-      "filePath": "auth.tsx"
+    "/(pages)/explore": {
+      "filePath": "(pages)/explore.tsx"
+    },
+    "/(pages)/places": {
+      "filePath": "(pages)/places.tsx"
+    },
+    "/(pages)/shop": {
+      "filePath": "(pages)/shop.tsx"
     }
   }
 }
