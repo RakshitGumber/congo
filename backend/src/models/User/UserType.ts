@@ -4,6 +4,7 @@ export interface IUser {
   _id: string;
   username: string;
   email: string;
+  isEmailVerified: boolean;
   password: string;
   firstName: string;
   address: ObjectId[];
