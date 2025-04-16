@@ -8,7 +8,7 @@ import { Link } from "@tanstack/react-router";
 const Navbar = () => {
   const { theme } = useTheme();
   return (
-    <div className="relative top-0 w-screen h-28 flex items-center justify-center px-[100px] py-4">
+    <div className="relative top-0 w-screen h-28 flex items-center justify-center px-[100px] py-4 z-50">
       <div
         className={cn(
           "h-full w-full rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 border p-[18px]",
