@@ -1,12 +1,22 @@
 import { ModeToggle } from "@/components/controller/mode-toggle";
 import { Button } from "@/components/ui";
+import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react";
 import { Link } from "@tanstack/react-router";
 
 const Navbar = () => {
+  const { theme } = useTheme();
   return (
     <div className="relative top-0 w-screen h-28 flex items-center justify-center px-[100px] py-4">
-      <div className="h-full w-full bg-card rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 border border-[#1c3575AA] p-[18px]">
+      <div
+        className={cn(
+          "h-full w-full rounded-xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-50 border p-[18px]",
+          theme === "dark"
+            ? "bg-black border-[#1A1A1AAA]"
+            : "bg-gray-200 border-[#F5F5F5AA]"
+        )}
+      >
         <div className="h-full w-full flex items-center justify-between">
           <div className="font-serif font-bold text-[32px] px-6 py-2 rounded-xl cursor-pointer select-none hover:bg-white/5">
             Congo
@@ -53,7 +63,7 @@ const Navbar = () => {
             <Button
               variant="default"
               size="icon"
-              className="bg-[#2DA984] text-foreground"
+              className="bg-[#FF5E57] text-foreground"
             >
               <Icon icon="whh:emptycart" />
             </Button>
