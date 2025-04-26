@@ -18,55 +18,72 @@ const Navbar = () => {
         )}
       >
         <div className="h-full w-full flex items-center justify-between">
-          <div className="font-serif font-bold text-[32px] px-6 py-2 rounded-xl cursor-pointer select-none hover:bg-white/5">
-            Congo
+          <div className="flex items-center gap-4">
+            <div className="font-serif font-bold text-[32px] px-6 py-2 rounded-xl cursor-pointer select-none hover:bg-white/5">
+              Congo
+            </div>
+            <ul className="font-sans flex gap-4 text-xl font-normal">
+              <li className="px-6 py-3 hover:underline underline-offset-[5px]">
+                <Link
+                  className="[&.active]:font-bold [&.active]:underline"
+                  to="/"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="px-6 py-3 hover:underline underline-offset-[5px]">
+                <Link
+                  className="[&.active]:font-bold [&.active]:underline"
+                  to="/shop"
+                >
+                  Shop
+                </Link>
+              </li>
+              <li className="px-6 py-3 hover:underline underline-offset-[5px]">
+                <Link
+                  className="[&.active]:font-bold [&.active]:underline"
+                  to="/explore"
+                >
+                  Explore
+                </Link>
+              </li>
+              <li className="px-6 py-3 hover:underline underline-offset-[5px]">
+                <Link
+                  className="[&.active]:font-bold [&.active]:underline"
+                  to="/places"
+                >
+                  Places
+                </Link>
+              </li>
+            </ul>
           </div>
-          <ul className="font-sans flex gap-4 text-xl font-normal">
-            <li className="px-6 py-3 hover:underline underline-offset-[5px]">
-              <Link
-                className="[&.active]:font-bold [&.active]:underline"
-                to="/"
+          <div className="flex items-center gap-4">
+            <div className="flex items-center">
+              <label
+                htmlFor="search"
+                className="text-gray-500 h-10 px-4 flex items-center rounded-l-xl bg-gray-700"
               >
-                Home
-              </Link>
-            </li>
-            <li className="px-6 py-3 hover:underline underline-offset-[5px]">
-              <Link
-                className="[&.active]:font-bold [&.active]:underline"
-                to="/shop"
+                <Icon icon="fa:search" fontSize={18} />
+              </label>
+              <input
+                type="text"
+                className="text-white h-10 text-lg placeholder:text-gray-500 rounded-r-xl bg-gray-700 outline-none"
+                placeholder="Search"
+              />
+            </div>
+            <div className="flex gap-1">
+              <Button variant="ghost" size="icon">
+                <Icon icon="fa:github" />
+              </Button>
+              <ModeToggle />
+              <Button
+                variant="default"
+                size="icon"
+                className="bg-[#FF5E57] text-foreground"
               >
-                Shop
-              </Link>
-            </li>
-            <li className="px-6 py-3 hover:underline underline-offset-[5px]">
-              <Link
-                className="[&.active]:font-bold [&.active]:underline"
-                to="/explore"
-              >
-                Explore
-              </Link>
-            </li>
-            <li className="px-6 py-3 hover:underline underline-offset-[5px]">
-              <Link
-                className="[&.active]:font-bold [&.active]:underline"
-                to="/places"
-              >
-                Places
-              </Link>
-            </li>
-          </ul>
-          <div className="flex gap-1">
-            <Button variant="ghost" size="icon">
-              <Icon icon="fa:github" />
-            </Button>
-            <ModeToggle />
-            <Button
-              variant="default"
-              size="icon"
-              className="bg-[#FF5E57] text-foreground"
-            >
-              <Icon icon="whh:emptycart" />
-            </Button>
+                <Icon icon="whh:emptycart" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

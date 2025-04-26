@@ -6,6 +6,7 @@ const Hero = () => {
   const { theme } = useTheme();
   return (
     <>
+      <div className="relative top-0 h-[calc(100vh-112px)]"></div>
       <div
         className="absolute top-0 left-0 h-screen w-screen overflow-hidden"
         style={{
@@ -47,10 +48,7 @@ const Hero = () => {
           </ul>
         </div>
         <div className="absolute top-72 left-64 w-full">
-          <h1
-            className="text-9xl font-serif font-black absolute top-0 left-0 w-full drop-shadow-2xl"
-            data-theme={"white"}
-          >
+          <h1 className="text-9xl font-serif font-black absolute top-0 left-0 w-full drop-shadow-2xl">
             Best in Clothes
           </h1>
           <h1 className="text-9xl font-serif font-black absolute top-44 left-44 w-full drop-shadow-2xl">
@@ -86,7 +84,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* <div className="mx-[148px]">Hello</div> */}
     </>
   );
 };

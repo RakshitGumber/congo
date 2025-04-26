@@ -1,4 +1,4 @@
-import { Hero } from "@/components/core";
+import { Category, Hero } from "@/components/core";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -6,5 +6,10 @@ export const Route = createFileRoute("/")({
 });
 
 function RouteComponent() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <Category text="Men" />
+    </>
+  );
 }
