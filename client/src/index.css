@@ -67,6 +67,17 @@
 
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
   }
 
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background: hsl(var(--popover));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--accent));
+  border-radius: 6px;
 }
