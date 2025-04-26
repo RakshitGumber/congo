@@ -1,14 +1,31 @@
+import Carousel from "@/components/controller/carousel";
 import { Button } from "@/components/ui";
 import { useTheme } from "@/hooks/useTheme";
+import { cn } from "@/lib/utils";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useEffect, useState } from "react";
+
+const carouselItems = [
+  {
+    image: "/clothes/dark-shirt.jpg",
+    link: "/idk",
+  },
+  {
+    image: "/clothes/biege-shirt.jpg",
+    link: "/idgaf",
+  },
+];
 
 const Hero = () => {
   const { theme } = useTheme();
+
   return (
     <>
-      <div className="relative top-0 h-[calc(100vh-112px)]"></div>
       <div
-        className="absolute top-0 left-0 h-screen w-screen overflow-hidden"
+        className={cn("relative top-0 xl:h-[calc(100vh)] h-[calc(40svh)]")}
+      ></div>
+      <div
+        className="absolute top-0 left-0 h-screen w-screen overflow-hidden xl:block hidden"
         style={{
           background:
             theme === "dark"
@@ -19,12 +36,12 @@ const Hero = () => {
         <img
           src="/clothes/biege-shirt.jpg"
           alt="shirt"
-          className="w-[400px] h-[400px] object-cover absolute top-0 left-[30%]"
+          className="xl:w-[400px] xl:h-[400px] object-cover absolute top-0 left-[30%]"
         />
         <img
           src="/clothes/dark-shirt.jpg"
           alt="shirt"
-          className="w-[400px] h-[400px] object-cover absolute bottom-0 right-0"
+          className="xl:w-[400px] xl:h-[400px] object-cover absolute bottom-0 right-0"
         />
         <div className="border-b-2 border-gray-800 abolute top-0 left-0 w-[65vh] flex items-center justify-center -rotate-90 -translate-x-[20%] translate-y-[45vh]">
           <ul className="flex w-full items-center justify-evenly pb-5 text-gray-500">
@@ -81,6 +98,24 @@ const Hero = () => {
               90+
             </h2>
             <span className="text-xl">Top Brands</span>
+          </div>
+        </div>
+      </div>
+      <div className="absolute xl:hidden block top-0 h-[40svh]">
+        <Carousel items={carouselItems} />
+        <div>
+          <div
+            className="w-[340px] absolute bottom-8 drop-shadow-2xl text-white
+           left-8"
+          >
+            Designed to speak louder than words — because you were never meant
+            to blend in.
+            <Button
+              size="lg"
+              className="bg-[#FF5E57] text-foreground font-black mt-4"
+            >
+              Explore
+            </Button>
           </div>
         </div>
       </div>

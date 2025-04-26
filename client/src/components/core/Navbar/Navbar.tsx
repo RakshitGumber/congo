@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { theme } = useTheme();
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <div
       id="navbar"
-      className="relative top-0 w-screen xl:h-28 min-h-16 h-fit flex xl:flex-row flex-col items-center justify-center xl:px-[100px] xl:py-4 z-50"
+      className="absolute top-0 w-screen xl:h-28 min-h-16 h-fit flex xl:flex-row flex-col items-center justify-center xl:px-[100px] xl:py-4 z-50"
     >
       <div
         className={cn(
